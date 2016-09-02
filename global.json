@@ -1,5 +1,7 @@
 {
-	"project": [
-		"src"
-	]
+  "project": [
+    "src",
+    "test"
+  ],
+  "projects": [ "src" ]
 }
