@@ -3,5 +3,5 @@
     "src",
     "test"
   ],
-  "projects": [ "src" ]
+  "projects": [ "src", "../../projects" ]
 }

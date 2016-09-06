@@ -4,9 +4,7 @@
     "debugType": "portable"
   },
   "dependencies": {
-    "DotNetCoreLibrary" : {
-      "target" : "project"
-    },
+    "DotNetCoreLibrary": "1.0.0-*",
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
      "Microsoft.AspNetCore.Mvc": "1.0.0"
   },
