@@ -1,31 +1,20 @@
 
-import {Component, OnInit} from "angular2/core";
+import {Component, OnInit} from 'angular2/core';
 import {ArtistsService} from "./artists.service";
 import {IArtist} from "./artist";
 import {IPaginationData} from "../../shared/interfaces/IPaginationData"
+import {BaseListingComponent} from '../../shared/base.listing.component';
 import {ROUTER_DIRECTIVES } from 'angular2/router';
 
 @Component({
     templateUrl: "/app/components/artists/artists-listing.component.html",
     directives: [ROUTER_DIRECTIVES]
 })
-export class ArtistsListingComponent implements OnInit {
-
-    pageNumber: number = 1;
-    pageSize: number = 10;
-    searchTerms: string = '';
-    sortColumn: string = 'Name';
-    sortDirection: string = 'ASC';
-
+export class ArtistsListingComponent extends BaseListingComponent implements OnInit {
     artists: IArtist[];
-    paginationData: IPaginationData;
-    pagesArray: number[];
-
-    errorMessage: string;
-    isLoading: boolean = true;  
 
     constructor(private _artistsService: ArtistsService) {
-
+        super();
     }
 
     ngOnInit(): void {
@@ -52,18 +41,10 @@ export class ArtistsListingComponent implements OnInit {
                 this.artists = <IArtist[]>response.list;
             }
             );
-    }
+    }    
 
-    initPagesArray(): void {
-        if (!this.paginationData) return;
-        this.pagesArray = [];
-        for (var i = 1; i <= this.paginationData.totalNumberOfPages; i++) {
-            this.pagesArray.push(i);
-        }
-    }
-
-    clearSearch(): void {
-        this.searchTerms = '';
+    protected clearSearch(): void {
+        super.clearSearch();
         this.pageData(this.pageNumber, this.pageSize, this.searchTerms, this.sortColumn, this.sortDirection);
     }
 }
