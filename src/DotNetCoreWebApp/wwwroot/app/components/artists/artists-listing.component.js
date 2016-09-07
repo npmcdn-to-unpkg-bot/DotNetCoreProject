@@ -17,6 +17,7 @@ var core_1 = require('angular2/core');
 var artists_service_1 = require("./artists.service");
 var base_listing_component_1 = require('../../shared/base.listing.component');
 var router_1 = require('angular2/router');
+var pagination_component_1 = require('../../shared/pagination.component');
 var ArtistsListingComponent = (function (_super) {
     __extends(ArtistsListingComponent, _super);
     function ArtistsListingComponent(_artistsService) {
@@ -47,7 +48,7 @@ var ArtistsListingComponent = (function (_super) {
     ArtistsListingComponent = __decorate([
         core_1.Component({
             templateUrl: "/app/components/artists/artists-listing.component.html",
-            directives: [router_1.ROUTER_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES, pagination_component_1.PaginationComponent]
         }), 
         __metadata('design:paramtypes', [artists_service_1.ArtistsService])
     ], ArtistsListingComponent);

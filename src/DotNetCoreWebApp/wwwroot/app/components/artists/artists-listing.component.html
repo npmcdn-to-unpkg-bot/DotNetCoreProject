@@ -59,7 +59,14 @@
         </form>
 
 
+<pagination-controls 
+    [totalNumberOfPages]='paginationData.totalNumberOfPages'>
+            </pagination-controls>
         <div *ngIf(pagesArray)>
+
+            
+
+
             <p>Showing {{paginationData.offsetFromZero}} to {{paginationData.offsetUpperBound}} records of {{paginationData.totalNumberOfRecords}}.
                 This is page {{paginationData.pageNumber}} of {{paginationData.totalNumberOfPages}}.</p>
             <ul class="pagination pagination-sm">

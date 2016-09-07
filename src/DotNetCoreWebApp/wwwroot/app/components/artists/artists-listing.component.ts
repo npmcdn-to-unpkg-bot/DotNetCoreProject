@@ -5,10 +5,11 @@ import {IArtist} from "./artist";
 import {IPaginationData} from "../../shared/interfaces/IPaginationData"
 import {BaseListingComponent} from '../../shared/base.listing.component';
 import {ROUTER_DIRECTIVES } from 'angular2/router';
+import {PaginationComponent} from '../../shared/pagination.component'
 
 @Component({
     templateUrl: "/app/components/artists/artists-listing.component.html",
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, PaginationComponent]
 })
 export class ArtistsListingComponent extends BaseListingComponent implements OnInit {
     artists: IArtist[];
