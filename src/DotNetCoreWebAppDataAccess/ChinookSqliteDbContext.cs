@@ -1,10 +1,10 @@
-﻿using DotNetCoreTestWebProject.Models;
+﻿using DotNetCoreWebAppModels.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DotNetCoreTestWebProject.Data
+namespace DotNetCoreWebAppDataAccess
 {
-    public partial class ChinookSqliteDbContext : DbContext
+    public class ChinookSqliteDbContext : DbContext
     {
         public ChinookSqliteDbContext(){}
 

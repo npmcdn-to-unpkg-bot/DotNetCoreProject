@@ -4,7 +4,7 @@ using Core.Common.Utilities;
 using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
 
-namespace DotNetCoreTestWebProject.Business
+namespace DotNetCoreWebApp.Business
 {
     public abstract class EntityBusinessBase<TEntity>
         where TEntity : BaseObjectWithState, IObjectWithState, new()

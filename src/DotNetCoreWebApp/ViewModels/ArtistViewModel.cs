@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using DotNetCoreTestWebProject.Models;
+using DotNetCoreWebAppModels.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace DotNetCoreTestWebProject.ViewModels
+namespace DotNetCoreWebApp.ViewModels
 {
     public class ArtistViewModel : BaseViewModel
     {
@@ -16,9 +16,11 @@ namespace DotNetCoreTestWebProject.ViewModels
         {
             get
             {
-                var list = new List<SelectListItem>();
-                list.Add(new SelectListItem { Text = "Artist Id", Value = "ArtistId" });
-                list.Add(new SelectListItem { Text = "Artist name", Value = "Name" });
+                var list = new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Artist Id", Value = "ArtistId"},
+                    new SelectListItem {Text = "Artist name", Value = "Name"}
+                };
                 return list;
             }
         }

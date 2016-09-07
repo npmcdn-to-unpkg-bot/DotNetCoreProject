@@ -1,15 +1,15 @@
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Core.Common.Data.Models;
-using DotNetCoreTestWebProject.Models;
-using DotNetCoreTestWebProject.ViewModels;
-using Microsoft.AspNetCore.Hosting;
-using DotNetCoreTestWebProject.Business.Interfaces;
 using System.Threading.Tasks;
-using DotNetCoreTestWebProject.EditModels;
 using Core.Common.Data.Interfaces;
+using Core.Common.Data.Models;
+using DotNetCoreWebApp.EditModels;
+using DotNetCoreWebApp.ViewModels;
+using DotNetCoreWebAppBusiness.Business.Interfaces;
+using DotNetCoreWebAppModels.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 
-namespace DotNetCoreTestWebProject.Controllers
+namespace DotNetCoreWebApp.Controllers
 {
 
     public class ChinookController : BaseController
@@ -20,7 +20,7 @@ namespace DotNetCoreTestWebProject.Controllers
              IArtistEntityBusiness artistEntityBusiness, IHostingEnvironment hostingEnvironment)
         {
             _artistEntityBusiness = artistEntityBusiness;
-            base.hostingEnvironment = hostingEnvironment;
+            this.hostingEnvironment = hostingEnvironment;
 
         }
 
@@ -43,8 +43,7 @@ namespace DotNetCoreTestWebProject.Controllers
                 ViewBag.sortCol = result.MessagesDictionary["sortCol"];
                 ViewBag.sortDir = result.MessagesDictionary["sortDir"];
 
-                var model = new ArtistViewModel();
-                model.ArtistsList = result.MessagesDictionary["list"] as IEnumerable<Artist>;
+                var model = new ArtistViewModel {ArtistsList = result.MessagesDictionary["list"] as IEnumerable<Artist>};
 
                 return View(model);
             });
@@ -75,7 +74,7 @@ namespace DotNetCoreTestWebProject.Controllers
 
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
-                var artist = new DotNetCoreTestWebProject.Models.Artist
+                var artist = new Artist
                 {
                     Name = model.Name,
                     ObjectState = ObjectState.Added,

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
+using Core.Common.Data.Models;
 using Core.Common.Utilities;
+using DotNetCoreWebAppModels.Models;
 
-namespace DotNetCoreTestWebProject.Models
+namespace DotNetCoreWebAppModels.Models
 {
-    public partial class Track : BaseObjectWithState, IObjectWithState
+    public sealed class Track : BaseObjectWithState, IObjectWithState
     {
         public Track()
         {
@@ -27,10 +28,10 @@ namespace DotNetCoreTestWebProject.Models
         public long? Bytes { get; set; }
         public string UnitPrice { get; set; }
 
-        public virtual ICollection<InvoiceLine> InvoiceLine { get; set; }
-        public virtual ICollection<PlaylistTrack> PlaylistTrack { get; set; }
-        public virtual Album Album { get; set; }
-        public virtual Genre Genre { get; set; }
-        public virtual MediaType MediaType { get; set; }
+        public ICollection<InvoiceLine> InvoiceLine { get; set; }
+        public ICollection<PlaylistTrack> PlaylistTrack { get; set; }
+        public Album Album { get; set; }
+        public Genre Genre { get; set; }
+        public MediaType MediaType { get; set; }
     }
 }

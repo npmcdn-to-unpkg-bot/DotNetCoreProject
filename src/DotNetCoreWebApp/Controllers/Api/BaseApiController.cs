@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace DotNetCoreTestWebProject.Controllers.Api
+namespace DotNetCoreWebApp.Controllers.Api
 {
     public abstract class BaseApiController : Controller
     {

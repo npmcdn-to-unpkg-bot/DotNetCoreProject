@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DotNetCoreTestWebProject.Data.Migrations
+namespace DotNetCoreWebApp.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

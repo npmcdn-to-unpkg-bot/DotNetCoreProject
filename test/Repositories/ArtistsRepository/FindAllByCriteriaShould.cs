@@ -1,5 +1,4 @@
-
-using DotNetCoreTestWebProject.Data;
+using DotNetCoreWebAppDataAccess;
 using Xunit;
 
 namespace Tests.Repository

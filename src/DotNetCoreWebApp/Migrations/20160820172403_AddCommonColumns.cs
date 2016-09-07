@@ -2,7 +2,7 @@
 using Core.Common.Utilities;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DotNetCoreTestWebProject.Migrations
+namespace DotNetCoreWebApp.Migrations
 {
     public partial class AddCommonColumns : Migration
     {

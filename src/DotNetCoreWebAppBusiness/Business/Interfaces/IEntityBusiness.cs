@@ -3,7 +3,7 @@ using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
 using System.Threading.Tasks;
 
-namespace DotNetCoreTestWebProject.Business.Interfaces
+namespace DotNetCoreWebApp.Business.Interfaces
 {
     public interface IEntityBusiness<TEntity>
         where TEntity : BaseObjectWithState, IObjectWithState, new()

@@ -1,6 +1,7 @@
-using DotNetCoreTestWebProject.Models;
+using DotNetCoreWebApp.Business.Interfaces;
+using DotNetCoreWebAppModels.Models;
 
-namespace DotNetCoreTestWebProject.Business.Interfaces
+namespace DotNetCoreWebAppBusiness.Business.Interfaces
 {
     public interface IArtistEntityBusiness: IEntityBusiness<Artist> 
     {

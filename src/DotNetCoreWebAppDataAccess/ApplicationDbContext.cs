@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using DotNetCoreTestWebProject.Models;
+using DotNetCoreWebAppModels.Models;
 
-namespace DotNetCoreTestWebProject.Data
+namespace DotNetCoreWebApp.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

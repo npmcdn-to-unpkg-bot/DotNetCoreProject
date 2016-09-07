@@ -1,7 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace DotNetCoreTestWebProject
+namespace DotNetCoreWebApp
 {
     public class Program
     {

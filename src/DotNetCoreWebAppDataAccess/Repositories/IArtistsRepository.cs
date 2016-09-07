@@ -1,8 +1,7 @@
-
-using DotNetCoreTestWebProject.Models;
 using Core.Common.Data.Interfaces;
+using DotNetCoreWebAppModels.Models;
 
-namespace DotNetCoreTestWebProject.Business.Interfaces
+namespace DotNetCoreWebAppDataAccess.Repositories
 {
     public interface IArtistsRepository : IDataRepository<Artist> {
 

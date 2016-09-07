@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DotNetCoreTestWebProject.Models.ManageViewModels
+namespace DotNetCoreWebAppModels.Models.ManageViewModels
 {
     public class AddPhoneNumberViewModel
     {

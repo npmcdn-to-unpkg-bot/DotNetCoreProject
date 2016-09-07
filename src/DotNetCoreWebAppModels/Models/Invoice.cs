@@ -4,9 +4,9 @@ using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
 using Core.Common.Utilities;
 
-namespace DotNetCoreTestWebProject.Models
+namespace DotNetCoreWebAppModels.Models
 {
-    public partial class Invoice : BaseObjectWithState, IObjectWithState
+    public sealed class Invoice : BaseObjectWithState, IObjectWithState
     {
         public Invoice()
         {
@@ -26,7 +26,7 @@ namespace DotNetCoreTestWebProject.Models
         public string BillingPostalCode { get; set; }
         public string Total { get; set; }
 
-        public virtual ICollection<InvoiceLine> InvoiceLine { get; set; }
-        public virtual Customer Customer { get; set; }
+        public ICollection<InvoiceLine> InvoiceLine { get; set; }
+        public Customer Customer { get; set; }
     }
 }

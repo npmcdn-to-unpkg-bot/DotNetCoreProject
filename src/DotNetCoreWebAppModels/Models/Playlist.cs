@@ -4,7 +4,7 @@ using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
 using Core.Common.Utilities;
 
-namespace DotNetCoreTestWebProject.Models
+namespace DotNetCoreWebAppModels.Models
 {
     public partial class Playlist : BaseObjectWithState, IObjectWithState
     {

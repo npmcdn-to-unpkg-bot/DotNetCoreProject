@@ -5,7 +5,7 @@ using Core.Common.Utilities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DotNetCoreTestWebProject.Controllers
+namespace DotNetCoreWebApp.Controllers
 {
     public abstract class BaseController : Controller
     {

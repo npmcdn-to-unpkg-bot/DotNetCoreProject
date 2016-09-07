@@ -1,11 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using DotNetCoreTestWebProject.Data;
+using DotNetCoreWebAppDataAccess;
 
-namespace DotNetCoreTestWebProject.Migrations
+namespace DotNetCoreWebApp.Migrations
 {
     [DbContext(typeof(ChinookSqliteDbContext))]
     [Migration("20160820172403_AddCommonColumns")]
@@ -16,7 +15,7 @@ namespace DotNetCoreTestWebProject.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Album", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Album", b =>
                 {
                     b.Property<long>("AlbumId")
                         .ValueGeneratedOnAdd();
@@ -49,7 +48,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("Album");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Artist", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Artist", b =>
                 {
                     b.Property<long>("ArtistId")
                         .ValueGeneratedOnAdd();
@@ -76,7 +75,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("Artist");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Customer", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Customer", b =>
                 {
                     b.Property<long>("CustomerId")
                         .ValueGeneratedOnAdd();
@@ -141,7 +140,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("Customer");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Employee", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Employee", b =>
                 {
                     b.Property<long>("EmployeeId")
                         .ValueGeneratedOnAdd();
@@ -211,7 +210,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("Employee");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Genre", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Genre", b =>
                 {
                     b.Property<long>("GenreId")
                         .ValueGeneratedOnAdd();
@@ -238,7 +237,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("Genre");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Invoice", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Invoice", b =>
                 {
                     b.Property<long>("InvoiceId")
                         .ValueGeneratedOnAdd();
@@ -290,7 +289,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("Invoice");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.InvoiceLine", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.InvoiceLine", b =>
                 {
                     b.Property<long>("InvoiceLineId")
                         .ValueGeneratedOnAdd();
@@ -330,7 +329,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("InvoiceLine");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.MediaType", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.MediaType", b =>
                 {
                     b.Property<long>("MediaTypeId")
                         .ValueGeneratedOnAdd();
@@ -357,7 +356,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("MediaType");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Playlist", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Playlist", b =>
                 {
                     b.Property<long>("PlaylistId")
                         .ValueGeneratedOnAdd();
@@ -384,7 +383,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("Playlist");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.PlaylistTrack", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.PlaylistTrack", b =>
                 {
                     b.Property<long>("PlaylistId");
 
@@ -415,7 +414,7 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("PlaylistTrack");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Track", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Track", b =>
                 {
                     b.Property<long>("TrackId")
                         .ValueGeneratedOnAdd();
@@ -469,67 +468,67 @@ namespace DotNetCoreTestWebProject.Migrations
                     b.ToTable("Track");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Album", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Album", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.Artist", "Artist")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Artist", "Artist")
                         .WithMany("Album")
                         .HasForeignKey("ArtistId");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Customer", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Customer", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.Employee", "SupportRep")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Employee", "SupportRep")
                         .WithMany("Customer")
                         .HasForeignKey("SupportRepId");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Employee", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Employee", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.Employee", "ReportsToNavigation")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Employee", "ReportsToNavigation")
                         .WithMany("InverseReportsToNavigation")
                         .HasForeignKey("ReportsTo");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Invoice", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Invoice", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.Customer", "Customer")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Customer", "Customer")
                         .WithMany("Invoice")
                         .HasForeignKey("CustomerId");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.InvoiceLine", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.InvoiceLine", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.Invoice", "Invoice")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Invoice", "Invoice")
                         .WithMany("InvoiceLine")
                         .HasForeignKey("InvoiceId");
 
-                    b.HasOne("DotNetCoreTestWebProject.Models.Track", "Track")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Track", "Track")
                         .WithMany("InvoiceLine")
                         .HasForeignKey("TrackId");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.PlaylistTrack", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.PlaylistTrack", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.Playlist", "Playlist")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Playlist", "Playlist")
                         .WithMany("PlaylistTrack")
                         .HasForeignKey("PlaylistId");
 
-                    b.HasOne("DotNetCoreTestWebProject.Models.Track", "Track")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Track", "Track")
                         .WithMany("PlaylistTrack")
                         .HasForeignKey("TrackId");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.Track", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.Track", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.Album", "Album")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Album", "Album")
                         .WithMany("Track")
                         .HasForeignKey("AlbumId");
 
-                    b.HasOne("DotNetCoreTestWebProject.Models.Genre", "Genre")
+                    b.HasOne("DotNetCoreWebAppModels.Models.Genre", "Genre")
                         .WithMany("Track")
                         .HasForeignKey("GenreId");
 
-                    b.HasOne("DotNetCoreTestWebProject.Models.MediaType", "MediaType")
+                    b.HasOne("DotNetCoreWebAppModels.Models.MediaType", "MediaType")
                         .WithMany("Track")
                         .HasForeignKey("MediaTypeId");
                 });

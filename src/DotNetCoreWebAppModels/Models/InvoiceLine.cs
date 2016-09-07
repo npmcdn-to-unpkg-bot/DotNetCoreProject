@@ -1,11 +1,11 @@
 ﻿using System;
-using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
+using Core.Common.Data.Models;
 using Core.Common.Utilities;
 
-namespace DotNetCoreTestWebProject.Models
+namespace DotNetCoreWebAppModels.Models
 {
-    public partial class InvoiceLine : BaseObjectWithState, IObjectWithState
+    public class InvoiceLine : BaseObjectWithState, IObjectWithState
     {
         public InvoiceLine()
         {

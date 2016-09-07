@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Core.Common.Data.Models;
 using Core.Common.Extensions;
 using Core.Common.Utilities;
-using DotNetCoreTestWebProject.Business.Interfaces;
-using DotNetCoreTestWebProject.Models;
-using Core.Common.Data.Models;
-using System.Threading.Tasks;
+using DotNetCoreWebApp.Business;
+using DotNetCoreWebAppBusiness.Business.Interfaces;
+using DotNetCoreWebAppDataAccess.Repositories;
+using DotNetCoreWebAppModels.Models;
 
-namespace DotNetCoreTestWebProject.Business
+namespace DotNetCoreWebAppBusiness.Business
 {
     public class ArtistEntityBusiness : EntityBusinessBase<Artist>, IArtistEntityBusiness
     {
@@ -34,10 +36,10 @@ namespace DotNetCoreTestWebProject.Business
             sortDir = sortDir ?? "ASC";
             searchTerms = searchTerms.IsNullOrWhiteSpace() ? string.Empty: searchTerms;
 
-            int totalNumberOfRecords = 0;
-            int totalNumberOfPages = 0;
-            int offset = 0;
-            int offsetUpperBound = 0;
+            int totalNumberOfRecords;
+            int totalNumberOfPages;
+            int offset;
+            int offsetUpperBound;
             
             var list = FindAllEntitiesByCriteria(
                         pageNumber,
@@ -86,7 +88,7 @@ namespace DotNetCoreTestWebProject.Business
 
             totalNumberOfPages = (int)Math.Ceiling((double)totalRecords / sizeOfPage);
 
-            offset = (int)((pageIndex - 1) * sizeOfPage + 1);
+            offset = (pageIndex - 1) * sizeOfPage + 1;
             offsetUpperBound = offset + (sizeOfPage - 1);
             if (offsetUpperBound > totalRecords) offsetUpperBound = totalRecords;
 

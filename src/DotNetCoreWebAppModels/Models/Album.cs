@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
+using Core.Common.Data.Models;
 using Core.Common.Utilities;
+using DotNetCoreWebAppModels.Models;
 
-namespace DotNetCoreTestWebProject.Models
+namespace DotNetCoreWebAppModels.Models
 {
-    public partial class Album : BaseObjectWithState, IObjectWithState
+    public sealed class Album : BaseObjectWithState, IObjectWithState
     {
         public Album()
         {
@@ -20,7 +21,7 @@ namespace DotNetCoreTestWebProject.Models
         public string Title { get; set; }
         public long ArtistId { get; set; }
 
-        public virtual ICollection<Track> Track { get; set; }
-        public virtual Artist Artist { get; set; }
+        public ICollection<Track> Track { get; set; }
+        public Artist Artist { get; set; }
     }
 }

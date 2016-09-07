@@ -1,3 +1,10 @@
+using DotNetCoreWebApp.Data;
+using DotNetCoreWebAppModels.Models;
+using DotNetCoreWebApp.Services;
+using DotNetCoreWebAppBusiness.Business;
+using DotNetCoreWebAppBusiness.Business.Interfaces;
+using DotNetCoreWebAppDataAccess;
+using DotNetCoreWebAppDataAccess.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -5,14 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using DotNetCoreTestWebProject.Data;
-using DotNetCoreTestWebProject.Services;
-using DotNetCoreTestWebProject.Models;
-using DotNetCoreTestWebProject.Business.Interfaces;
-using DotNetCoreTestWebProject.Business.Repositories;
-using DotNetCoreTestWebProject.Business;
 
-namespace DotNetCoreTestWebProject
+namespace DotNetCoreWebApp
 {
     public class Startup
     {

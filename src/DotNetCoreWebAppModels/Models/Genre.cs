@@ -4,9 +4,9 @@ using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
 using Core.Common.Utilities;
 
-namespace DotNetCoreTestWebProject.Models
+namespace DotNetCoreWebAppModels.Models
 {
-    public partial class Genre : BaseObjectWithState, IObjectWithState
+    public sealed class Genre : BaseObjectWithState, IObjectWithState
     {
         public Genre()
         {
@@ -19,6 +19,6 @@ namespace DotNetCoreTestWebProject.Models
         public long GenreId { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Track> Track { get; set; }
+        public ICollection<Track> Track { get; set; }
     }
 }

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using DotNetCoreTestWebProject.Data;
+using DotNetCoreWebApp.Data;
 
-namespace DotNetCoreTestWebProject.Data.Migrations
+namespace DotNetCoreWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -122,7 +122,7 @@ namespace DotNetCoreTestWebProject.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("DotNetCoreTestWebProject.Models.ApplicationUser", b =>
+            modelBuilder.Entity("DotNetCoreWebAppModels.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id");
 
@@ -180,7 +180,7 @@ namespace DotNetCoreTestWebProject.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.ApplicationUser")
+                    b.HasOne("DotNetCoreWebAppModels.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -188,7 +188,7 @@ namespace DotNetCoreTestWebProject.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("DotNetCoreTestWebProject.Models.ApplicationUser")
+                    b.HasOne("DotNetCoreWebAppModels.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -201,7 +201,7 @@ namespace DotNetCoreTestWebProject.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("DotNetCoreTestWebProject.Models.ApplicationUser")
+                    b.HasOne("DotNetCoreWebAppModels.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

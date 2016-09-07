@@ -3,14 +3,12 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Core.Common.Data.Repositories;
-using DotNetCoreTestWebProject.Business.Interfaces;
-using DotNetCoreTestWebProject.Data;
-using DotNetCoreTestWebProject.Models;
-using LinqKit;
 using Core.Common.Data.Interfaces;
+using Core.Common.Data.Repositories;
+using DotNetCoreWebAppModels.Models;
+using LinqKit;
 
-namespace DotNetCoreTestWebProject.Business.Repositories
+namespace DotNetCoreWebAppDataAccess.Repositories
 {
     public class ArtistsRepository : EfDataRepositoryBase<Artist, ChinookSqliteDbContext>,
      IArtistsRepository

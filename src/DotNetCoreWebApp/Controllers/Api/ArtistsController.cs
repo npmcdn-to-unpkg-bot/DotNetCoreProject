@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Common.Data.Models;
-
-using DotNetCoreTestWebProject.Models;
+using DotNetCoreWebApp.Controllers.Api;
+using DotNetCoreWebAppBusiness.Business.Interfaces;
+using DotNetCoreWebAppModels.Models;
 using Microsoft.AspNetCore.Mvc;
-using DotNetCoreTestWebProject.Business.Interfaces;
 
-namespace DotNetCoreTestWebProject.Controllers.Api
+namespace DotNetCoreWebApp.Controllers.Api
 {
     [Route("api/[controller]")]
     public sealed class ArtistsController : BaseApiController
