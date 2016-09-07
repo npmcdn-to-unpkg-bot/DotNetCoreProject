@@ -33,8 +33,9 @@ var PaginationComponent = (function () {
             this.pagesArray.push(i);
         }
     };
-    PaginationComponent.prototype.onPageClick = function () {
-        this.pageNumberClicked.emit(100);
+    PaginationComponent.prototype.onPageClick = function (newPageNumber) {
+        this.pageNumber = newPageNumber;
+        this.pageNumberClicked.emit(this.pageNumber);
     };
     __decorate([
         core_1.Input(), 

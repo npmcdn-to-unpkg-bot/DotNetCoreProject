@@ -50,8 +50,9 @@ export class PaginationComponent implements OnChanges, OnInit {
 
     @Output() pageNumberClicked: EventEmitter<number> = new EventEmitter<number>();
 
-    onPageClick() : void {
-        this.pageNumberClicked.emit(100);
+    onPageClick(newPageNumber: number): void {
+        this.pageNumber = newPageNumber;
+        this.pageNumberClicked.emit(this.pageNumber );
     }
 
 }
