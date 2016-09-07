@@ -11,13 +11,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var PaginationComponent = (function () {
     function PaginationComponent() {
+        this.maxNavigationPagesToDisplay = 8;
+        this.previousPage = (this.pageNumber - 1);
+        this.searchTerms = '';
+        this.sortCol = '';
+        this.sortDir = 'ASC';
+        this.showPaginationControls = false;
     }
+    PaginationComponent.prototype.ngOnInit = function () {
+        this.showPaginationControls = (this.totalNumberOfPages > 1);
+        this.initPagesArray();
+    };
     PaginationComponent.prototype.ngOnChanges = function () {
+    };
+    PaginationComponent.prototype.initPagesArray = function () {
+        if (!this.showPaginationControls)
+            return;
+        this.pagesArray = [];
+        for (var i = 1; i <= this.totalNumberOfPages; i++) {
+            this.pagesArray.push(i);
+        }
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)
+    ], PaginationComponent.prototype, "pageNumber", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], PaginationComponent.prototype, "totalNumberOfRecords", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
     ], PaginationComponent.prototype, "totalNumberOfPages", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], PaginationComponent.prototype, "offsetFromZero", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], PaginationComponent.prototype, "offsetUpperBound", void 0);
     PaginationComponent = __decorate([
         core_1.Component({
             selector: 'pagination-controls',

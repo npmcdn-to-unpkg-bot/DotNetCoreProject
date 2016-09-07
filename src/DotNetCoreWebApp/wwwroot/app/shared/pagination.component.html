@@ -1,3 +1,11 @@
-<div>
-    <p>I AM PAGING!! {{totalNumberOfPages}}</p>
+<div *ngIf(showPaginationControls)>
+    <p>Showing {{offsetFromZero}} to {{offsetUpperBound}} records of {{totalNumberOfRecords}}.
+        This is page {{pageNumber}} of {{totalNumberOfPages}}.</p>
+<!--
+    <ul class="pagination pagination-sm">
+        <li *ngFor="let page of pagesArray">
+            <a [routerLink]="['ArtiststList']" (click)="pageData(page,paginationData.pageSize,searchTerms,paginationData.sortColumn,paginationData.sortDirection)">{{page}}</a>
+        </li>
+    </ul>
+    -->
 </div>

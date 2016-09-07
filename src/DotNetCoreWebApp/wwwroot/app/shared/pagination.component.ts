@@ -1,16 +1,16 @@
 
-import {Component, OnChanges, Input, 
-         Output, EventEmitter } from 'angular2/core';
+import {Component, OnChanges, Input,
+    Output, EventEmitter, OnInit } from 'angular2/core';
 
 @Component({
     selector: 'pagination-controls',
     templateUrl: "app/shared/pagination.component.html"
 
 })
-export class PaginationComponent implements OnChanges {
-    /*
+export class PaginationComponent implements OnChanges, OnInit {    
+
     maxNavigationPagesToDisplay: number = 8;
-    pageNumber: number;
+
     lastPage: number;
     countInitialValue: number;
     rightPageCount: number;
@@ -19,12 +19,34 @@ export class PaginationComponent implements OnChanges {
     searchTerms: string = '';
     sortCol = '';
     sortDir = 'ASC';
-    totalNumberOfItems:number;
-    */
-    @Input() totalNumberOfPages:number;
+
+    
+
+    pagesArray: number[];
+
+    @Input() pageNumber: number;
+    @Input() totalNumberOfRecords: number;
+    @Input() totalNumberOfPages: number;
+    @Input() offsetFromZero: number;
+    @Input() offsetUpperBound: number;
+
+    showPaginationControls:boolean = false;
+
+    ngOnInit(): void {
+        this.showPaginationControls = (this.totalNumberOfPages > 1);
+        this.initPagesArray();
+    }
 
     ngOnChanges(): void {
 
+    }
+
+    private initPagesArray(): void {
+        if (!this.showPaginationControls) return;
+        this.pagesArray = [];
+        for (var i = 1; i <= this.totalNumberOfPages; i++) {
+            this.pagesArray.push(i);
+        }
     }
 
 }
