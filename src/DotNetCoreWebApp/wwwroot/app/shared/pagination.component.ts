@@ -15,12 +15,10 @@ export class PaginationComponent implements OnChanges, OnInit {
     countInitialValue: number;
     rightPageCount: number;
     pagesToAdd: number;
-    previousPage: number = (this.pageNumber - 1);
+    previousPage: number = (this.pageNumber > 2 ? (this.pageNumber - 1) : 1);
     searchTerms: string = '';
     sortCol = '';
-    sortDir = 'ASC';
-
-    
+    sortDir = 'ASC';   
 
     pagesArray: number[];
 
@@ -29,6 +27,7 @@ export class PaginationComponent implements OnChanges, OnInit {
     @Input() totalNumberOfPages: number;
     @Input() offsetFromZero: number;
     @Input() offsetUpperBound: number;
+    @Input() navigationLink:string;
 
     showPaginationControls:boolean = false;
 
@@ -47,6 +46,12 @@ export class PaginationComponent implements OnChanges, OnInit {
         for (var i = 1; i <= this.totalNumberOfPages; i++) {
             this.pagesArray.push(i);
         }
+    }
+
+    @Output() pageNumberClicked: EventEmitter<number> = new EventEmitter<number>();
+
+    onPageClick() : void {
+        this.pageNumberClicked.emit(100);
     }
 
 }

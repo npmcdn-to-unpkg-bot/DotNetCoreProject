@@ -12,11 +12,12 @@ var core_1 = require('angular2/core');
 var PaginationComponent = (function () {
     function PaginationComponent() {
         this.maxNavigationPagesToDisplay = 8;
-        this.previousPage = (this.pageNumber - 1);
+        this.previousPage = (this.pageNumber > 2 ? (this.pageNumber - 1) : 1);
         this.searchTerms = '';
         this.sortCol = '';
         this.sortDir = 'ASC';
         this.showPaginationControls = false;
+        this.pageNumberClicked = new core_1.EventEmitter();
     }
     PaginationComponent.prototype.ngOnInit = function () {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
@@ -31,6 +32,9 @@ var PaginationComponent = (function () {
         for (var i = 1; i <= this.totalNumberOfPages; i++) {
             this.pagesArray.push(i);
         }
+    };
+    PaginationComponent.prototype.onPageClick = function () {
+        this.pageNumberClicked.emit(100);
     };
     __decorate([
         core_1.Input(), 
@@ -52,6 +56,14 @@ var PaginationComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Number)
     ], PaginationComponent.prototype, "offsetUpperBound", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], PaginationComponent.prototype, "navigationLink", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], PaginationComponent.prototype, "pageNumberClicked", void 0);
     PaginationComponent = __decorate([
         core_1.Component({
             selector: 'pagination-controls',

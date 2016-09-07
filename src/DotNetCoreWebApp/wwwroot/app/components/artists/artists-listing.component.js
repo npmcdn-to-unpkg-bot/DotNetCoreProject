@@ -41,6 +41,9 @@ var ArtistsListingComponent = (function (_super) {
             _this.artists = response.list;
         });
     };
+    ArtistsListingComponent.prototype.onPageNumberChanged = function (newPageNumber) {
+        alert("new page was " + newPageNumber);
+    };
     ArtistsListingComponent.prototype.clearSearch = function () {
         _super.prototype.clearSearch.call(this);
         this.pageData(this.pageNumber, this.pageSize, this.searchTerms, this.sortColumn, this.sortDirection);

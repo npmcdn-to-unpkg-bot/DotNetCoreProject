@@ -67,6 +67,8 @@
             [totalNumberOfRecords]='paginationData.totalNumberOfRecords'
             [offsetFromZero]='paginationData.offsetFromZero'
             [offsetUpperBound]='paginationData.offsetUpperBound'
+            [navigationLink]='ArtistsList'
+            (pageNumberClicked)='onPageNumberChanged($event)'
             >
         </pagination-controls>
     </div>

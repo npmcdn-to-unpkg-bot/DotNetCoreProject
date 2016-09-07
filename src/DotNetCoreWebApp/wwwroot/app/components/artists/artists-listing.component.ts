@@ -22,6 +22,7 @@ export class ArtistsListingComponent extends BaseListingComponent implements OnI
         this.pageData(this.pageNumber, this.pageSize, this.searchTerms, this.sortColumn, this.sortDirection);
     }
 
+
     pageData(pageNumber: number, pageSize: number, searchTerms: string,
         sortColumn: string, sortDirection: string): void {
         this.pageNumber = pageNumber;
@@ -43,6 +44,10 @@ export class ArtistsListingComponent extends BaseListingComponent implements OnI
             }
             );
     }    
+
+    onPageNumberChanged(newPageNumber: number) : void {
+        alert("new page was " + newPageNumber);
+    }
 
     protected clearSearch(): void {
         super.clearSearch();
