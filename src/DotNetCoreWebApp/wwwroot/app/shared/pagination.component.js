@@ -11,21 +11,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var PaginationComponent = (function () {
     function PaginationComponent() {
-        this.maxNavigationPagesToDisplay = 8;
+        this.numberOfPagesToDisplayOnEitherSideOfCurrentPage = 6;
         this.previousPage = (this.pageNumber > 2 ? (this.pageNumber - 1) : 1);
         this.sortCol = '';
         this.sortDir = 'ASC';
+        this.minPageToDisplay = 1;
+        this.maxPageToDisplay = 1;
+        this.pagesLeftOfCurrentPageArray = [];
+        this.pagesRightOfCurrentPageArray = [];
         this.searchTerms = '';
         this.showPaginationControls = false;
         this.pageNumberClicked = new core_1.EventEmitter();
     }
+    PaginationComponent.prototype.calculateMinMaxPagesToDisplay = function () {
+        this.calculateMinPageToDisplay();
+        this.calculateMaxPageToDisplay();
+    };
+    PaginationComponent.prototype.calculateMinPageToDisplay = function () {
+        var min = this.pageNumber - this.numberOfPagesToDisplayOnEitherSideOfCurrentPage;
+        if (min <= 0) {
+            min = 1;
+        }
+        this.pagesLeftOfCurrentPageArray = [];
+        for (var i = min; i < this.pageNumber; i++) {
+            this.pagesLeftOfCurrentPageArray.push(i);
+        }
+    };
+    PaginationComponent.prototype.calculateMaxPageToDisplay = function () {
+        var max = this.pageNumber + this.numberOfPagesToDisplayOnEitherSideOfCurrentPage;
+        if (max > this.totalNumberOfPages) {
+            max = this.totalNumberOfPages;
+        }
+        this.pagesRightOfCurrentPageArray = [];
+        for (var i = (this.pageNumber + 1); i <= max; i++) {
+            this.pagesRightOfCurrentPageArray.push(i);
+        }
+    };
     PaginationComponent.prototype.ngOnInit = function () {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
         this.initPagesArray();
+        this.calculateMinMaxPagesToDisplay();
     };
     PaginationComponent.prototype.ngOnChanges = function () {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
         this.initPagesArray();
+        this.calculateMinMaxPagesToDisplay();
     };
     PaginationComponent.prototype.initPagesArray = function () {
         if (!this.showPaginationControls)
@@ -43,6 +73,10 @@ var PaginationComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Number)
     ], PaginationComponent.prototype, "pageNumber", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], PaginationComponent.prototype, "pageSize", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)

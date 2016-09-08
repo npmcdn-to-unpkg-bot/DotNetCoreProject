@@ -8,38 +8,70 @@ import {Component, OnChanges, Input,
     styleUrls: ["app/shared/pagination.component.css"]
 
 })
-export class PaginationComponent implements OnChanges, OnInit {    
+export class PaginationComponent implements OnChanges, OnInit {
 
-    maxNavigationPagesToDisplay: number = 8;
+    numberOfPagesToDisplayOnEitherSideOfCurrentPage: number = 6;
 
-    lastPage: number;
-    countInitialValue: number;
-    rightPageCount: number;
-    pagesToAdd: number;
     previousPage: number = (this.pageNumber > 2 ? (this.pageNumber - 1) : 1);
-    
+
     sortCol = '';
-    sortDir = 'ASC';   
+    sortDir = 'ASC';
+
+    minPageToDisplay: number = 1;
+    maxPageToDisplay: number = 1;
 
     pagesArray: number[];
+    pagesLeftOfCurrentPageArray = [];
+    pagesRightOfCurrentPageArray = [];
 
     @Input() pageNumber: number;
+    @Input() pageSize: number;
     @Input() totalNumberOfRecords: number;
     @Input() totalNumberOfPages: number;
     @Input() offsetFromZero: number;
     @Input() offsetUpperBound: number;
     @Input() searchTerms: string = '';
 
-    showPaginationControls:boolean = false;
+    showPaginationControls: boolean = false;
+
+    calculateMinMaxPagesToDisplay(): void {
+        this.calculateMinPageToDisplay();
+        this.calculateMaxPageToDisplay();
+    }
+
+    calculateMinPageToDisplay(): void {
+        let min: number = this.pageNumber - this.numberOfPagesToDisplayOnEitherSideOfCurrentPage;
+        if(min <= 0) { min = 1; }
+        this.pagesLeftOfCurrentPageArray = [];
+        for (var i = min; i < this.pageNumber; i++) {
+            this.pagesLeftOfCurrentPageArray.push(i);
+        }
+
+    }    
+
+    calculateMaxPageToDisplay(): void {
+        let max: number = this.pageNumber + this.numberOfPagesToDisplayOnEitherSideOfCurrentPage;
+        if(max > this.totalNumberOfPages) {
+            max = this.totalNumberOfPages;
+        }
+        this.pagesRightOfCurrentPageArray = [];
+        for (var i = (this.pageNumber+1); i <= max; i++) {
+            this.pagesRightOfCurrentPageArray.push(i);
+        }
+    }
+
+
 
     ngOnInit(): void {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
         this.initPagesArray();
+        this.calculateMinMaxPagesToDisplay();
     }
 
     ngOnChanges(): void {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
         this.initPagesArray();
+        this.calculateMinMaxPagesToDisplay();
     }
 
     private initPagesArray(): void {
@@ -54,7 +86,7 @@ export class PaginationComponent implements OnChanges, OnInit {
 
     onPageClick(newPageNumber: number): void {
         this.pageNumber = newPageNumber;
-        this.pageNumberClicked.emit(this.pageNumber );
+        this.pageNumberClicked.emit(this.pageNumber);
     }
 
 }

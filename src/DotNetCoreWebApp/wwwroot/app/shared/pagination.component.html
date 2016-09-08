@@ -1,20 +1,24 @@
 <div *ngIf(showPaginationControls)>
     <p>Showing {{offsetFromZero}} to {{offsetUpperBound}} records of {{totalNumberOfRecords}}. This is page {{pageNumber}} of
-        {{totalNumberOfPages}}.</p>
+        {{totalNumberOfPages}}.
+    </p>
 
+    <p> Max pages: {{maxNavigationPagesToDisplay}}</p>
 
     <ul class="pagination pagination-sm">
-        <li *ngFor="let page of pagesArray">
-            <a href="#"  (click)="onPageClick(page)">{{page}}</a>
+        <li *ngIf="(totalNumberOfRecords > pageSize) && (pageNumber == 1)"><a >&lt;&lt; First  &lt; Prev&nbsp; </a></li>
+        <li *ngIf="(totalNumberOfRecords > pageSize) && (pageNumber > 1)"><a >&lt;&lt; First</a></li>
+        <li *ngIf="(totalNumberOfRecords > pageSize) && (pageNumber > 1)"> <a >&lt;&lt; Prev</a></li>
+       
+        <li class="inactive" *ngFor="let page of pagesLeftOfCurrentPageArray">
+            <a (click)="onPageClick(page)">{{page}}</a>
         </li>
-    </ul>
- 
 
-    <!--
-    <ul class="pagination pagination-sm">
-        <li *ngFor="let page of pagesArray">
-            <a [routerLink]="['ArtiststList']" (click)="pageData(page,paginationData.pageSize,searchTerms,paginationData.sortColumn,paginationData.sortDirection)">{{page}}</a>
+        <li class="active"><a (click)="onPageClick(pageNumber)">{{pageNumber}}</a></li>
+        <li class="inactive" *ngFor="let page of pagesRightOfCurrentPageArray">
+            <a (click)="onPageClick(page)">{{page}}</a>
         </li>
+      
     </ul>
-    -->
+
 </div>
