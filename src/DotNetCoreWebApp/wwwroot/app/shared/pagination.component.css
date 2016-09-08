@@ -1,4 +1,4 @@
-a:hover {
-    cursor: hand;
+li {
+    cursor: pointer; cursor: hand;
 }
     
