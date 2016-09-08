@@ -9,10 +9,7 @@ import {Component, OnChanges, Input,
 
 })
 export class PaginationComponent implements OnChanges, OnInit {
-
     numberOfPagesToDisplayOnEitherSideOfCurrentPage: number = 6;
-
-    previousPage: number = (this.pageNumber > 2 ? (this.pageNumber - 1) : 1);
 
     sortCol = '';
     sortDir = 'ASC';

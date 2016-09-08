@@ -47,7 +47,6 @@ export class ArtistsListingComponent extends BaseListingComponent implements OnI
 
     onPageNumberChanged(newPageNumber: number) : void {
          this.pageNumber = newPageNumber;
-         //////
         this.pageData(newPageNumber, this.pageSize, this.searchTerms, this.sortColumn, this.sortDirection);
     }
 

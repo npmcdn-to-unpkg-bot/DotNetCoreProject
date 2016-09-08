@@ -12,7 +12,6 @@ var core_1 = require('angular2/core');
 var PaginationComponent = (function () {
     function PaginationComponent() {
         this.numberOfPagesToDisplayOnEitherSideOfCurrentPage = 6;
-        this.previousPage = (this.pageNumber > 2 ? (this.pageNumber - 1) : 1);
         this.sortCol = '';
         this.sortDir = 'ASC';
         this.minPageToDisplay = 1;
