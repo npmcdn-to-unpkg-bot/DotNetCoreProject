@@ -13,9 +13,9 @@ var PaginationComponent = (function () {
     function PaginationComponent() {
         this.maxNavigationPagesToDisplay = 8;
         this.previousPage = (this.pageNumber > 2 ? (this.pageNumber - 1) : 1);
-        this.searchTerms = '';
         this.sortCol = '';
         this.sortDir = 'ASC';
+        this.searchTerms = '';
         this.showPaginationControls = false;
         this.pageNumberClicked = new core_1.EventEmitter();
     }
@@ -24,6 +24,8 @@ var PaginationComponent = (function () {
         this.initPagesArray();
     };
     PaginationComponent.prototype.ngOnChanges = function () {
+        this.showPaginationControls = (this.totalNumberOfPages > 1);
+        this.initPagesArray();
     };
     PaginationComponent.prototype.initPagesArray = function () {
         if (!this.showPaginationControls)
@@ -60,7 +62,7 @@ var PaginationComponent = (function () {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
-    ], PaginationComponent.prototype, "navigationLink", void 0);
+    ], PaginationComponent.prototype, "searchTerms", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
@@ -68,7 +70,8 @@ var PaginationComponent = (function () {
     PaginationComponent = __decorate([
         core_1.Component({
             selector: 'pagination-controls',
-            templateUrl: "app/shared/pagination.component.html"
+            templateUrl: "app/shared/pagination.component.html",
+            styleUrls: ["app/shared/pagination.component.css"]
         }), 
         __metadata('design:paramtypes', [])
     ], PaginationComponent);

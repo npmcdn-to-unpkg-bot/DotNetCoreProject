@@ -44,17 +44,17 @@ namespace DotNetCoreWebApp.Controllers.Api
 
             var paginationData = new PaginationData
             {
-                OffsetFromZero = (int)result.MessagesDictionary["offset"],
-                PageNumber = (int)result.MessagesDictionary["pageIndex"],
-                PageSize = (int)result.MessagesDictionary["sizeOfPage"],
-                OffsetUpperBound = (int)result.MessagesDictionary["offsetUpperBound"],
-                TotalNumberOfRecords = (int)result.MessagesDictionary["totalNumberOfRecords"],
-                TotalNumberOfPages = (int)result.MessagesDictionary["totalNumberOfPages"],
-                SearchTermsCommaSeparated = result.MessagesDictionary["searchTerms"].ToString(),
-                SortColumn = result.MessagesDictionary["sortCol"].ToString(),
-                SortDirection = result.MessagesDictionary["sortDir"].ToString()
+                OffsetFromZero = (int)result.ObjectsDictionary["offset"],
+                PageNumber = (int)result.ObjectsDictionary["pageIndex"],
+                PageSize = (int)result.ObjectsDictionary["sizeOfPage"],
+                OffsetUpperBound = (int)result.ObjectsDictionary["offsetUpperBound"],
+                TotalNumberOfRecords = (int)result.ObjectsDictionary["totalNumberOfRecords"],
+                TotalNumberOfPages = (int)result.ObjectsDictionary["totalNumberOfPages"],
+                SearchTermsCommaSeparated = result.ObjectsDictionary["searchTerms"].ToString(),
+                SortColumn = result.ObjectsDictionary["sortCol"].ToString(),
+                SortDirection = result.ObjectsDictionary["sortDir"].ToString()
             };
-            var list = result.MessagesDictionary["list"] as IEnumerable<Artist>;
+            var list = result.ObjectsDictionary["list"] as IEnumerable<Artist>;
             var toReturn = Json(new { list, paginationData });
 
             return toReturn;

@@ -33,17 +33,17 @@ namespace DotNetCoreWebApp.Controllers
                 OperationResult result = _artistEntityBusiness.ListItems(
                 pageNumber, pageSize, sortCol, sortDir, searchTerms);
 
-                ViewBag.offset = result.MessagesDictionary["offset"];
-                ViewBag.pageIndex = result.MessagesDictionary["pageIndex"];
-                ViewBag.sizeOfPage = result.MessagesDictionary["sizeOfPage"];
-                ViewBag.offsetUpperBound = result.MessagesDictionary["offsetUpperBound"];
-                ViewBag.totalRecords = result.MessagesDictionary["totalNumberOfRecords"];
-                ViewBag.totalNumberOfPages = result.MessagesDictionary["totalNumberOfPages"];
-                ViewBag.searchTerms = result.MessagesDictionary["searchTerms"];
-                ViewBag.sortCol = result.MessagesDictionary["sortCol"];
-                ViewBag.sortDir = result.MessagesDictionary["sortDir"];
+                ViewBag.offset = result.ObjectsDictionary["offset"];
+                ViewBag.pageIndex = result.ObjectsDictionary["pageIndex"];
+                ViewBag.sizeOfPage = result.ObjectsDictionary["sizeOfPage"];
+                ViewBag.offsetUpperBound = result.ObjectsDictionary["offsetUpperBound"];
+                ViewBag.totalRecords = result.ObjectsDictionary["totalNumberOfRecords"];
+                ViewBag.totalNumberOfPages = result.ObjectsDictionary["totalNumberOfPages"];
+                ViewBag.searchTerms = result.ObjectsDictionary["searchTerms"];
+                ViewBag.sortCol = result.ObjectsDictionary["sortCol"];
+                ViewBag.sortDir = result.ObjectsDictionary["sortDir"];
 
-                var model = new ArtistViewModel {ArtistsList = result.MessagesDictionary["list"] as IEnumerable<Artist>};
+                var model = new ArtistViewModel {ArtistsList = result.ObjectsDictionary["list"] as IEnumerable<Artist>};
 
                 return View(model);
             });

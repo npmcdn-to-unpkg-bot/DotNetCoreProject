@@ -60,16 +60,15 @@
 
 
 
-    <div *ngIf(pagesArray)>
+   
         <pagination-controls 
             [totalNumberOfPages]='paginationData.totalNumberOfPages'
             [pageNumber]='paginationData.pageNumber'
             [totalNumberOfRecords]='paginationData.totalNumberOfRecords'
             [offsetFromZero]='paginationData.offsetFromZero'
             [offsetUpperBound]='paginationData.offsetUpperBound'
-            [navigationLink]='ArtistsList'
-            (pageNumberClicked)='onPageNumberChanged($event)'
-            >
+            [searchTerms]='searchTerms'
+            (pageNumberClicked)='onPageNumberChanged($event)'>
         </pagination-controls>
-    </div>
+    
 </div>

@@ -1,13 +1,22 @@
 {
   "_args": [
     [
-      "es6-shim@^0.35.1",
-      "Y:\\Desktop\\temp\\projects\\DotNetCoreProject\\src\\DotNetCoreWebApp"
+      {
+        "raw": "es6-shim@^0.35.1",
+        "scope": null,
+        "escapedName": "es6-shim",
+        "name": "es6-shim",
+        "rawSpec": "^0.35.1",
+        "spec": ">=0.35.1 <0.36.0",
+        "type": "range"
+      },
+      "c:\\data\\knowledge_base\\dotNet\\Core\\projects\\DotnetCoreWebApp"
     ]
   ],
-  "_from": "es6-shim@>=0.35.1-0 <0.36.0-0",
+  "_from": "es6-shim@>=0.35.1 <0.36.0",
   "_id": "es6-shim@0.35.1",
   "_inCache": true,
+  "_installable": true,
   "_location": "/es6-shim",
   "_nodeVersion": "6.1.0",
   "_npmOperationalInternal": {
@@ -15,17 +24,18 @@
     "tmp": "tmp/es6-shim-0.35.1.tgz_1463041283862_0.4303069841116667"
   },
   "_npmUser": {
-    "email": "ljharb@gmail.com",
-    "name": "ljharb"
+    "name": "ljharb",
+    "email": "ljharb@gmail.com"
   },
   "_npmVersion": "3.8.6",
   "_phantomChildren": {},
   "_requested": {
-    "name": "es6-shim",
     "raw": "es6-shim@^0.35.1",
-    "rawSpec": "^0.35.1",
     "scope": null,
-    "spec": ">=0.35.1-0 <0.36.0-0",
+    "escapedName": "es6-shim",
+    "name": "es6-shim",
+    "rawSpec": "^0.35.1",
+    "spec": ">=0.35.1 <0.36.0",
     "type": "range"
   },
   "_requiredBy": [
@@ -35,7 +45,7 @@
   "_shasum": "a23524009005b031ab4a352ac196dfdfd1144ab7",
   "_shrinkwrap": null,
   "_spec": "es6-shim@^0.35.1",
-  "_where": "Y:\\Desktop\\temp\\projects\\DotNetCoreProject\\src\\DotNetCoreWebApp",
+  "_where": "c:\\data\\knowledge_base\\dotNet\\Core\\projects\\DotnetCoreWebApp",
   "author": {
     "name": "Paul Miller",
     "url": "http://paulmillr.com"
@@ -69,18 +79,17 @@
   },
   "gitHead": "3e46993a95b1867665166e0290e5cbaaf2ccb2f6",
   "homepage": "https://github.com/paulmillr/es6-shim/",
-  "installable": true,
   "keywords": [
-    "__proto__",
     "ecmascript",
-    "es6",
     "harmony",
-    "map",
+    "es6",
+    "shim",
     "promise",
     "promises",
-    "set",
     "setPrototypeOf",
-    "shim"
+    "map",
+    "set",
+    "__proto__"
   ],
   "license": "MIT",
   "main": "es6-shim",
@@ -96,6 +105,7 @@
   ],
   "name": "es6-shim",
   "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git://github.com/paulmillr/es6-shim.git"
@@ -126,23 +136,23 @@
     "tests-only": "npm run --silent test:shim && npm run --silent test:sham"
   },
   "testling": {
+    "html": "testling.html",
     "browsers": [
-      "android-browser/4.2..latest",
-      "chrome/20.0..latest",
-      "chrome/4.0..10.0",
-      "chrome/canary",
+      "iexplore/6.0..latest",
+      "firefox/3.0..6.0",
       "firefox/10.0",
       "firefox/15.0..latest",
-      "firefox/3.0..6.0",
       "firefox/nightly",
-      "iexplore/6.0..latest",
-      "ipad/6.0..latest",
-      "iphone/6.0..latest",
+      "chrome/4.0..10.0",
+      "chrome/20.0..latest",
+      "chrome/canary",
       "opera/10.0..latest",
       "opera/next",
-      "safari/4.0..latest"
-    ],
-    "html": "testling.html"
+      "safari/4.0..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest",
+      "android-browser/4.2..latest"
+    ]
   },
   "version": "0.35.1"
 }

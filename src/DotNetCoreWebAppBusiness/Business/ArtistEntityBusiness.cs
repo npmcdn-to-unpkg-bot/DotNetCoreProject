@@ -52,10 +52,10 @@ namespace DotNetCoreWebAppBusiness.Business
                         out totalNumberOfPages,
                         result,
                         searchTerms);
-            result.MessagesDictionary.Add("list", list);
-            result.MessagesDictionary.Add("searchTerms", searchTerms);
-            result.MessagesDictionary.Add("sortCol", sortCol);
-            result.MessagesDictionary.Add("sortDir", sortDir);
+            result.AddResultObject("list", list);
+            result.AddResultObject("searchTerms", searchTerms);
+            result.AddResultObject("sortCol", sortCol);
+            result.AddResultObject("sortDir", sortDir);
             return result;
         }
 
@@ -92,12 +92,12 @@ namespace DotNetCoreWebAppBusiness.Business
             offsetUpperBound = offset + (sizeOfPage - 1);
             if (offsetUpperBound > totalRecords) offsetUpperBound = totalRecords;
 
-            result.MessagesDictionary.Add("offset", offset);
-            result.MessagesDictionary.Add("pageIndex", pageIndex);
-            result.MessagesDictionary.Add("sizeOfPage", sizeOfPage);
-            result.MessagesDictionary.Add("offsetUpperBound", offsetUpperBound);
-            result.MessagesDictionary.Add("totalNumberOfRecords", totalRecords);
-            result.MessagesDictionary.Add("totalNumberOfPages", totalNumberOfPages);
+            result.AddResultObject("offset", offset);
+            result.AddResultObject("pageIndex", pageIndex);
+            result.AddResultObject("sizeOfPage", sizeOfPage);
+            result.AddResultObject("offsetUpperBound", offsetUpperBound);
+            result.AddResultObject("totalNumberOfRecords", totalRecords);
+            result.AddResultObject("totalNumberOfPages", totalNumberOfPages);
 
             return items;
         }

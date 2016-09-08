@@ -4,7 +4,8 @@ import {Component, OnChanges, Input,
 
 @Component({
     selector: 'pagination-controls',
-    templateUrl: "app/shared/pagination.component.html"
+    templateUrl: "app/shared/pagination.component.html",
+    styleUrls: ["app/shared/pagination.component.css"]
 
 })
 export class PaginationComponent implements OnChanges, OnInit {    
@@ -16,7 +17,7 @@ export class PaginationComponent implements OnChanges, OnInit {
     rightPageCount: number;
     pagesToAdd: number;
     previousPage: number = (this.pageNumber > 2 ? (this.pageNumber - 1) : 1);
-    searchTerms: string = '';
+    
     sortCol = '';
     sortDir = 'ASC';   
 
@@ -27,7 +28,7 @@ export class PaginationComponent implements OnChanges, OnInit {
     @Input() totalNumberOfPages: number;
     @Input() offsetFromZero: number;
     @Input() offsetUpperBound: number;
-    @Input() navigationLink:string;
+    @Input() searchTerms: string = '';
 
     showPaginationControls:boolean = false;
 
@@ -37,7 +38,8 @@ export class PaginationComponent implements OnChanges, OnInit {
     }
 
     ngOnChanges(): void {
-
+        this.showPaginationControls = (this.totalNumberOfPages > 1);
+        this.initPagesArray();
     }
 
     private initPagesArray(): void {
