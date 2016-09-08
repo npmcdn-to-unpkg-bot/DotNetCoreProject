@@ -23,6 +23,10 @@ export class PaginationComponent implements OnChanges, OnInit {
     pagesArray: number[];
     pagesLeftOfCurrentPageArray = [];
     pagesRightOfCurrentPageArray = [];
+    showNextLink:boolean;
+    showPreviousLink: boolean;
+    showFirstLink:boolean;
+    showLastLink:boolean;
 
     @Input() pageNumber: number;
     @Input() pageSize: number;
@@ -37,6 +41,7 @@ export class PaginationComponent implements OnChanges, OnInit {
     calculateMinMaxPagesToDisplay(): void {
         this.calculateMinPageToDisplay();
         this.calculateMaxPageToDisplay();
+        this.enableConvenienceNavLinks();
     }
 
     calculateMinPageToDisplay(): void {
@@ -46,7 +51,6 @@ export class PaginationComponent implements OnChanges, OnInit {
         for (var i = min; i < this.pageNumber; i++) {
             this.pagesLeftOfCurrentPageArray.push(i);
         }
-
     }    
 
     calculateMaxPageToDisplay(): void {
@@ -60,32 +64,28 @@ export class PaginationComponent implements OnChanges, OnInit {
         }
     }
 
-
+    enableConvenienceNavLinks() : void {
+        this.showNextLink = (this.pageNumber != this.totalNumberOfPages);
+        this.showPreviousLink = (this.pageNumber > 1);
+        this.showLastLink = (this.pageNumber < this.totalNumberOfPages);
+        this.showFirstLink = (this.pageNumber > 1);
+    }
 
     ngOnInit(): void {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
-        this.initPagesArray();
         this.calculateMinMaxPagesToDisplay();
     }
 
     ngOnChanges(): void {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
-        this.initPagesArray();
         this.calculateMinMaxPagesToDisplay();
     }
-
-    private initPagesArray(): void {
-        if (!this.showPaginationControls) return;
-        this.pagesArray = [];
-        for (var i = 1; i <= this.totalNumberOfPages; i++) {
-            this.pagesArray.push(i);
-        }
-    }
-
+    
     @Output() pageNumberClicked: EventEmitter<number> = new EventEmitter<number>();
 
     onPageClick(newPageNumber: number): void {
         this.pageNumber = newPageNumber;
+        this.enableConvenienceNavLinks();
         this.pageNumberClicked.emit(this.pageNumber);
     }
 

@@ -26,6 +26,7 @@ var PaginationComponent = (function () {
     PaginationComponent.prototype.calculateMinMaxPagesToDisplay = function () {
         this.calculateMinPageToDisplay();
         this.calculateMaxPageToDisplay();
+        this.enableConvenienceNavLinks();
     };
     PaginationComponent.prototype.calculateMinPageToDisplay = function () {
         var min = this.pageNumber - this.numberOfPagesToDisplayOnEitherSideOfCurrentPage;
@@ -47,26 +48,23 @@ var PaginationComponent = (function () {
             this.pagesRightOfCurrentPageArray.push(i);
         }
     };
+    PaginationComponent.prototype.enableConvenienceNavLinks = function () {
+        this.showNextLink = (this.pageNumber != this.totalNumberOfPages);
+        this.showPreviousLink = (this.pageNumber > 1);
+        this.showLastLink = (this.pageNumber < this.totalNumberOfPages);
+        this.showFirstLink = (this.pageNumber > 1);
+    };
     PaginationComponent.prototype.ngOnInit = function () {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
-        this.initPagesArray();
         this.calculateMinMaxPagesToDisplay();
     };
     PaginationComponent.prototype.ngOnChanges = function () {
         this.showPaginationControls = (this.totalNumberOfPages > 1);
-        this.initPagesArray();
         this.calculateMinMaxPagesToDisplay();
-    };
-    PaginationComponent.prototype.initPagesArray = function () {
-        if (!this.showPaginationControls)
-            return;
-        this.pagesArray = [];
-        for (var i = 1; i <= this.totalNumberOfPages; i++) {
-            this.pagesArray.push(i);
-        }
     };
     PaginationComponent.prototype.onPageClick = function (newPageNumber) {
         this.pageNumber = newPageNumber;
+        this.enableConvenienceNavLinks();
         this.pageNumberClicked.emit(this.pageNumber);
     };
     __decorate([
